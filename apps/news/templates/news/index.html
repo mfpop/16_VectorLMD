@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  News & Alerts | Vector LMD
+{% endblock title %}
+{% block content %}
+  {% csrf_token %}
+  <div class="h-screen flex flex-col"
+       x-data="newsData()"
+       x-init="fetchNews()"
+       x-show="newsData !== null">
+      <!-- Modern Card Header -->
+    <div class="border-b px-6 py-2 bg-white shadow-sm flex items-centered justify-between">
+      <div class="max-w-12xl mx-auto pl-6 pr-6 flex-1">
+            <!-- Top section with title and main actions -->
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h2 class="text-2xl font-semibold text-gray-800 flex items-center flex-grow">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6 mr-2 text-blue-500"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            News & Alerts
+          </h2>
+               <!-- Search form with real-time updates -->
+          <div class="flex max-w-lg gap-2">
+            <div class="relative flex-1">
+              <div class="flex items-center border border-gray-300 rounded-lg pr-4 py-2 text-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
+                <div class="pl-3 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400"
+                       xmlns="http://www.w3.org/2000/svg"
+                       viewBox="0 0 20 20"
+                       fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <input type="text"
+                       name="search"
+                       placeholder="Search news and alerts..."
+                       class="pl-3 focus:outline-none w-full"
+                       x-model="search"
+                       @keyup.debounce.300ms="fetchNews()" />
+              </div>
+            </div>
+          </div>
+               <!-- Action buttons -->
+          <div class="flex items-center gap-2">
+                  <!-- Category Dropdown -->
+            <select name="category"
+                    class="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    x-model="category"
+                    @change="fetchNews()">
+              <option value="">All Types</option>
+              <option value="newsletter">Newsletters</option>
+              <option value="alert">Alerts</option>
+            </select>
+                  <!-- News Category Dropdown -->
+            <select name="news_category"
+                    class="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    x-model="newsCategory"
+                    @change="fetchNews()">
+              <option value="">All Categories</option>
+              <template x-for="category in newsData?.newsCategories" :key="category.id">
+                <option :value="category.id" x-text="category.name"></option>
+              </template>
+            </select>
+                  <!-- Author Dropdown -->
+            <select name="author"
+                    class="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    x-model="author"
+                    @change="fetchNews()">
+              <option value="">All Authors</option>
+              <template x-for="author in newsData?.newsAuthors" :key="author.id">
+                <option :value="author.id"
+                        x-text="author.firstName ? `${author.firstName} ${author.lastName}` : author.username">
+                </option>
+              </template>
+            </select>
+                  <!-- Reset button -->
+            <button @click="resetFilters()"
+                    class="inline-flex items-center p-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   class="h-5 w-5 transform hover:rotate-180 transition-transform duration-500"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 00-16 0m16 4a8 8 0 01-16 0" />
+              </svg>
+            </button>
+          </div>
+        </div>
+            <!-- Filter chips -->
+        <div class="flex items-center gap-2 text-sm mt-2"
+             x-show="search || category || newsCategory || author">
+          <span class="text-gray-500">Active filters:</span>
+          <template x-if="search">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700">
+              <span x-text="search"></span>
+              <button @click="search = ''; fetchNews()" class="hover:text-blue-900">×</button>
+            </span>
+          </template>
+          <template x-if="category">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700">
+              <span x-text="category.charAt(0).toUpperCase() + category.slice(1)"></span>
+              <button @click="category = ''; fetchNews()" class="hover:text-blue-900">×</button>
+            </span>
+          </template>
+          <template x-if="newsCategory">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700">
+              <span x-text="newsData?.newsCategories?.find(c => c.id === newsCategory)?.name"></span>
+              <button @click="newsCategory = ''; fetchNews()" class="hover:text-blue-900">×</button>
+            </span>
+          </template>
+          <template x-if="author">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700">
+              <span x-text="(() => { const a = newsData?.newsAuthors?.find(a => a.id === author); return a?.firstName ? `${a.firstName} ${a.lastName}` : a?.username; })()"></span>
+              <button @click="author = ''; fetchNews()" class="hover:text-blue-900">×</button>
+            </span>
+          </template>
+        </div>
+      </div>
+    </div>
+      <!-- Card Content -->
+    <div id="news-list" class="flex-1 p-6 overflow-y-auto bg-gray-50">
+      <template x-if="newsData?.allNews?.length">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <template x-for="news in newsData.allNews" :key="news.id">
+            <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-6">
+              <template x-if="news.featuredImage">
+                <img :src="news.featuredImage"
+                     :alt="news.title"
+                     class="w-full h-48 object-cover rounded-lg mb-4">
+              </template>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full text-sm"
+                      :class="{ 'bg-blue-50 text-blue-700': news.category === 'newsletter', 'bg-red-50 text-red-700': news.category === 'alert' }"
+                      x-text="news.newsCategory ? news.newsCategory.name : news.category.charAt(0).toUpperCase() + news.category.slice(1)"></span>
+                <div class="flex items-center gap-1 text-gray-500 text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                       class="h-4 w-4"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                  </svg>
+                  <span x-text="news.likeCount"></span>
+                </div>
+              </div>
+              <h3 class="text-xl font-semibold mb-2" x-text="news.title"></h3>
+              <p class="text-gray-600 mb-4 line-clamp-3" x-text="news.content"></p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span x-text="news.author.firstName ? `${news.author.firstName} ${news.author.lastName}` : news.author.username"></span>
+                <span x-text="new Date(news.createdAt).toLocaleDateString()"></span>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template x-if="!newsData?.allNews?.length">
+        <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+          <svg class="mx-auto h-12 w-12 text-gray-400"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+          </svg>
+          <h3 class="mt-2 text-sm font-medium text-gray-900">No news or alerts found</h3>
+          <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter criteria.</p>
+          <div class="mt-6">
+            <button @click="resetFilters()"
+                    class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-colors">
+              Clear filters
+            </button>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+   <!-- Alpine.js component script -->
+  <script>
+    function newsData() {
+      return {
+        search: '{{ request.GET.search|default:"" }}',
+        category: '{{ request.GET.category|default:"" }}',
+        newsCategory: '{{ request.GET.news_category|default:"" }}',
+        author: '{{ request.GET.author|default:"" }}',
+        newsData: {
+          allNews: [],
+          newsCategories: [],
+          newsAuthors: []
+        },
+        async fetchNews() {
+          const query = `
+             query GetNews($search: String, $category: String, $newsCategoryId: ID, $authorId: ID) {
+               allNews(search: $search, category: $category, newsCategoryId: $newsCategoryId, authorId: $authorId) {
+                 id title content category newsCategory { id name color } author { username firstName lastName } featuredImage createdAt likeCount dislikeCount
+               }
+               newsCategories { id name color }
+               newsAuthors { id username firstName lastName }
+             }
+           `;
+          const variables = {
+            search: this.search || null,
+            category: this.category || null,
+            newsCategoryId: this.newsCategory || null,
+            authorId: this.author || null,
+          };
+          try {
+            const response = await fetch('/graphql/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+              },
+              body: JSON.stringify({
+                query,
+                variables
+              }),
+            });
+            const result = await response.json();
+            if (result.errors) {
+              console.error('GraphQL errors:', result.errors);
+              return;
+            }
+            this.newsData = result.data;
+          } catch (error) {
+            console.error('Failed to fetch news:', error);
+          }
+        },
+        resetFilters() {
+          this.search = '';
+          this.category = '';
+          this.newsCategory = '';
+          this.author = '';
+          this.fetchNews();
+        }
+      };
+    }
+  </script>
+{% endblock content %}

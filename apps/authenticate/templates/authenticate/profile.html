@@ -1,0 +1,142 @@
+{% load static tailwind_tags %}
+<c-base.base>
+        <c-slot name="page_title">Profile</c-slot>
+        <c-slot name="sidebar"><c-base.sidebar /></c-slot>
+        <c-slot name="content">
+                <div class="flex items-center justify-center min-h-screen py-4">
+                        <div class="container max-w-4xl mx-auto overflow-hidden">
+      <!-- Futuristic Interface Container -->
+                                <div class="relative rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,150,255,0.2)] bg-white/95 overflow-hidden border border-blue-300/40">
+         <!-- Digital edge glow -->
+                                        <div class="absolute inset-0 border pointer-events-none border-blue-400/20 rounded-xl"></div>
+                                        <div class="absolute -inset-[0.5px] border border-blue-400/10 rounded-xl blur-[1px] pointer-events-none"></div>
+         <!-- Profile Panel -->
+                                        <div class="relative w-full p-6 rounded-xl bg-gradient-to-br from-sky-50 via-blue-50 to-sky-100 digital-panel">
+            <!-- Digital interface patterns -->
+                                                <div class="absolute inset-0 pointer-events-none opacity-70"
+                                                     style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%230ea5e9%22 fill-opacity=%220.05%22 fill-rule=%22evenodd%22%3E%3Cpath d=%22M0 20L20 0h10L0 30V20zM10 0L0 10v10L20 0H10z%22/%3E%3C/g%3E%3C/svg%3E')">
+                                                </div>
+            <!-- Content -->
+                                                <h2 class="relative mb-6 text-2xl font-semibold text-gray-800">
+                                                        <span class="absolute -left-3 top-1 w-1.5 h-5 bg-blue-500 shadow-[0_0_8px_rgba(0,150,255,0.8)] pointer-events-none"></span>
+                                                        Your Profile
+                                                </h2>
+            <!-- Display messages -->
+                                                {% if messages %}
+                                                        <div class="mb-4">
+                                                                {% for message in messages %}
+                                                                        <div class="p-3 mb-2 {% if message.tags == 'success' %}bg-green-100 text-green-700 border border-green-300{% elif message.tags == 'error' %}bg-red-100 text-red-700 border border-red-300{% else %}bg-blue-100 text-blue-700 border border-blue-300{% endif %} rounded-lg">
+                                                                                {{ message }}
+                                                                        </div>
+                                                                {% endfor %}
+                                                        </div>
+                                                {% endif %}
+                                                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+               <!-- User Info Panel -->
+                                                        <div class="col-span-1 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
+                                                                <div class="flex flex-col items-center">
+                                                                        <div class="relative w-24 h-24 mb-3 overflow-hidden bg-blue-100 rounded-full group">
+                                                                                {% if user.authenticate_profile.avatar %}
+                                                                                        <img src="{{ user.authenticate_profile.avatar.url }}"
+                                                                                             alt="{{ user.username }}"
+                                                                                             class="object-cover w-full h-full">
+                                                                                {% else %}
+                                                                                        <div class="flex items-center justify-center w-full h-full text-3xl font-semibold text-center text-blue-500">
+                                                                                                {{ user.first_name|slice:":1" }}{{ user.last_name|slice:":1" }}
+                                                                                        </div>
+                                                                                {% endif %}
+                                                                                <label for="avatar-upload"
+                                                                                       class="absolute inset-0 flex items-center justify-center transition-opacity bg-black bg-opacity-50 opacity-0 cursor-pointer group-hover:opacity-100">
+                                                                                        <span class="text-xs font-medium text-white">Change Photo</span>
+                                                                                </label>
+                                                                        </div>
+                                                                        <h3 class="mb-1 text-xl font-semibold text-gray-800">{{ user.get_full_name }}</h3>
+                                                                        <p class="mb-4 text-sm text-gray-500">@{{ user.username }}</p>
+                                                                        <div class="w-full p-3 mb-3 rounded-lg bg-blue-50">
+                                                                                <h4 class="mb-2 text-sm font-medium text-blue-700">Account Details</h4>
+                                                                                <ul class="space-y-2 text-sm text-gray-600">
+                                                                                        <li class="flex">
+                                                                                                <span class="w-24 font-medium">Email:</span>
+                                                                                                <span>{{ user.email }}</span>
+                                                                                        </li>
+                                                                                        <li class="flex">
+                                                                                                <span class="w-24 font-medium">Joined:</span>
+                                                                                                <span>{{ user.date_joined|date:"F j, Y" }}</span>
+                                                                                        </li>
+                                                                                        <li class="flex">
+                                                                                                <span class="w-24 font-medium">Last Login:</span>
+                                                                                                <span>{{ user.last_login|date:"F j, Y" }}</span>
+                                                                                        </li>
+                                                                                </ul>
+                                                                        </div>
+                                                                        <div class="w-full mt-2">
+                                                                                <a href="{% url 'password_change' %}"
+                                                                                   class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-blue-700 transition-colors border border-blue-300 rounded-lg hover:bg-blue-50">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                             class="w-4 h-4 mr-2"
+                                                                                             fill="none"
+                                                                                             viewBox="0 0 24 24"
+                                                                                             stroke="currentColor">
+                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                                                                        </svg>
+                                                                                        Change Password
+                                                                                </a>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+               <!-- Edit Profile Form -->
+                                                        <div class="col-span-2 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
+                                                                <h3 class="mb-4 text-lg font-semibold text-gray-800">Edit Profile Information</h3>
+                                                                <form method="post"
+                                                                      class="relative z-10 space-y-4"
+                                                                      enctype="multipart/form-data"
+                                                                      novalidate>
+                                                                        {% csrf_token %}
+                                                                        {{ p_form.avatar }} <!-- Hidden file input for avatar -->
+                                                                        <div class="grid grid-cols-2 gap-4">
+                                                                                <div class="mb-4">
+                                                                                        <label for="{{ form.first_name.id_for_label }}"
+                                                                                               class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
+                                                                                        {{ form.first_name }}
+                                                                                        {% if form.first_name.errors %}
+                                                                                                <div class="mt-1 text-sm text-red-600">
+                                                                                                        {% for error in form.first_name.errors %}{{ error }}{% endfor %}
+                                                                                                </div>
+                                                                                        {% endif %}
+                                                                                </div>
+                                                                                <div class="mb-4">
+                                                                                        <label for="{{ form.last_name.id_for_label }}"
+                                                                                               class="block mb-2 text-sm font-medium text-gray-700">Last Name</label>
+                                                                                        {{ form.last_name }}
+                                                                                        {% if form.last_name.errors %}
+                                                                                                <div class="mt-1 text-sm text-red-600">
+                                                                                                        {% for error in form.last_name.errors %}{{ error }}{% endfor %}
+                                                                                                </div>
+                                                                                        {% endif %}
+                                                                                </div>
+                                                                        </div>
+                                                                        <div class="mb-4">
+                                                                                <label for="{{ form.email.id_for_label }}"
+                                                                                       class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+                                                                                {{ form.email }}
+                                                                                {% if form.email.errors %}
+                                                                                        <div class="mt-1 text-sm text-red-600">
+                                                                                                {% for error in form.email.errors %}{{ error }}{% endfor %}
+                                                                                        </div>
+                                                                                {% endif %}
+                                                                        </div>
+                                                                        <div class="flex justify-end">
+                                                                                <button type="submit"
+                                                                                        class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                                                                                        Save Changes
+                                                                                </button>
+                                                                        </div>
+                                                                </form>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </c-slot>
+</c-base.base>

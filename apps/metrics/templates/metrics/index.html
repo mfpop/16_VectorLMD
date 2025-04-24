@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% block title %}
+  Lean Manufacturing Metrics | Vector LMD
+{% endblock title %}
+{% block meta_description %}
+  Track and analyze key lean manufacturing metrics for Vector LMD
+{% endblock meta_description %}
+{% block content %}
+  <div class="bg-gray-50 py-6 px-4 sm:px-6 lg:px-8 min-h-screen">
+      <!-- Added min-h-screen -->
+    <div class="max-w-7xl mx-auto">
+         <!-- Header Section -->
+      <div class="text-center mb-6">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-2">
+          Lean Manufacturing <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-cyan-600">Metrics</span>
+        </h1>
+        <p class="text-base text-gray-600 max-w-2xl mx-auto">
+          Monitor and analyze key performance indicators for operational excellence.
+        </p>
+      </div>
+         <!-- Two Column Layout -->
+         <!-- Changed grid-cols-1 lg:grid-cols-2 to lg:grid-cols-3 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Column 1: Real-Time Metrics Dashboard Section -->
+            <!-- Added lg:col-span-2 -->
+        <div class="lg:col-span-2 mb-8 lg:mb-0">
+          <h2 class="text-xl font-semibold mb-4 text-gray-800 text-center">Real-Time Dashboard</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- OEE Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-blue-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-blue-700 transition-colors">OEE</h3>
+                      <p class="text-xs text-gray-500">Overall Equipment Effectiveness</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium">Target: 85%</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-blue-800">78.5%</span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 78.5%"></div>
+              </div>
+            </div>
+                  <!-- Lead Time Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-green-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-green-700 transition-colors">Lead Time</h3>
+                      <p class="text-xs text-gray-500">Order to delivery</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-green-50 text-green-700 font-medium">Target: 4d</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-green-800">5.2 <span class="text-xl font-medium">days</span></span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-green-400 to-green-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 77%"></div>
+              </div>
+            </div>
+                  <!-- Defect Rate Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-red-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-red-700 transition-colors">Defect Rate</h3>
+                      <p class="text-xs text-gray-500">Defective units</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-700 font-medium">Target: &lt;1%</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-red-800">1.8%</span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-red-400 to-red-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 80%"></div>
+              </div>
+            </div>
+                  <!-- Cycle Time Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-purple-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m-15.357-2A8.001 8.001 0 0119.418 15m0 0H15">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-purple-700 transition-colors">Cycle Time</h3>
+                      <p class="text-xs text-gray-500">Time per unit</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 font-medium">Target: 38m</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-purple-800">42 <span class="text-xl font-medium">min</span></span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-purple-400 to-purple-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 90%"></div>
+              </div>
+            </div>
+                  <!-- Inventory Turnover Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-yellow-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-yellow-700 transition-colors">Inventory</h3>
+                      <p class="text-xs text-gray-500">Turnover rate</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700 font-medium">Target: 15x</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-yellow-800">12.5x</span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 83%"></div>
+              </div>
+            </div>
+                  <!-- Setup Time Card -->
+                  <!-- Added h-full -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-2">
+                                 <!-- Placeholder SVG Icon -->
+                      <svg class="w-5 h-5 text-indigo-600"
+                           fill="none"
+                           stroke="currentColor"
+                           viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-md font-semibold text-gray-800 group-hover:text-indigo-700 transition-colors">Setup Time</h3>
+                      <p class="text-xs text-gray-500">Equipment setup</p>
+                    </div>
+                  </div>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-medium">Target: 15m</span>
+                </div>
+                <div class="text-center mb-2">
+                  <span class="text-3xl font-bold text-indigo-800">18 <span class="text-xl font-medium">min</span></span>
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-1.5 mt-auto">
+                        <!-- Added mt-auto -->
+                <div class="bg-gradient-to-r from-indigo-400 to-indigo-600 h-1.5 rounded-full transition-all duration-500 ease-out"
+                     style="width: 83%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!-- Column 2: Additional Metrics Section -->
+            <!-- Added lg:col-span-1 -->
+        <div class="lg:col-span-1">
+          <h2 class="text-xl font-semibold mb-4 text-gray-800 text-center">Additional Lean Metrics</h2>
+               <!-- Kept md:grid-cols-1 as requested -->
+          <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+                  <!-- Value Stream Metrics Card -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+              <h3 class="text-md font-semibold text-gray-800 mb-3 flex items-center">
+                <div class="w-7 h-7 bg-blue-50 rounded-lg flex items-center justify-center mr-2">
+                           <!-- Placeholder SVG Icon -->
+                  <svg class="w-4 h-4 text-blue-600"
+                       fill="none"
+                       stroke="currentColor"
+                       viewBox="0 0 24 24"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                    </path>
+                  </svg>
+                </div>
+                Value Stream Metrics
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Value-Added Ratio</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">42%</span>
+                </li>
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Process Cycle Efficiency</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">68%</span>
+                </li>
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Work in Progress (WIP)</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">150 units</span>
+                </li>
+              </ul>
+            </div>
+                  <!-- Takt Time Card -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+              <h3 class="text-md font-semibold text-gray-800 mb-3 flex items-center">
+                <div class="w-7 h-7 bg-green-50 rounded-lg flex items-center justify-center mr-2">
+                           <!-- Placeholder SVG Icon -->
+                  <svg class="w-4 h-4 text-green-600"
+                       fill="none"
+                       stroke="currentColor"
+                       viewBox="0 0 24 24"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                  </svg>
+                </div>
+                Takt Time
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Current Takt Time</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">3.5 min/unit</span>
+                </li>
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Target Takt Time</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">3.2 min/unit</span>
+                </li>
+              </ul>
+            </div>
+                  <!-- First Time Yield Card -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+              <h3 class="text-md font-semibold text-gray-800 mb-3 flex items-center">
+                <div class="w-7 h-7 bg-yellow-50 rounded-lg flex items-center justify-center mr-2">
+                           <!-- Placeholder SVG Icon -->
+                  <svg class="w-4 h-4 text-yellow-600"
+                       fill="none"
+                       stroke="currentColor"
+                       viewBox="0 0 24 24"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                  </svg>
+                </div>
+                First Time Yield (FTY)
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Overall FTY</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">96.2%</span>
+                </li>
+                <li class="flex justify-between items-center text-xs">
+                  <span class="text-gray-600">Target FTY</span>
+                  <span class="font-semibold text-gray-900 px-1.5 py-0.5 bg-gray-100 rounded">98%</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

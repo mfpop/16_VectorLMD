@@ -1,0 +1,66 @@
+{% load static tailwind_tags %}
+<c-base.base>
+  <c-slot name="page_title">Message Sent</c-slot>
+  <c-slot name="sidebar"><c-base.sidebar /></c-slot>
+  <c-slot name="content">
+    <div class="grid min-h-screen place-items-center bg-gray-50">
+      <div class="flex items-center w-full max-w-md px-4">
+        <div class="p-8 text-center transition-all transform bg-white shadow-lg rounded-xl animate-fade-in-up">
+          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-green-500 bg-green-100 rounded-full animate-success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-8 h-8"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h1 class="mb-3 text-2xl font-bold text-gray-800">Thank You!</h1>
+          <p class="mb-6 text-gray-600">Your message has been sent successfully. We will get back to you as soon as possible.</p>
+          <a href="/"
+             class="inline-flex items-center px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform rounded-md shadow-md bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 hover:shadow-lg hover:-translate-y-1">
+            <svg class="w-4 h-4 mr-2"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Return to Home
+          </a>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes success-bounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      .animate-success-icon {
+        animation: success-bounce 1s ease-in-out;
+      }
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out;
+      }
+
+   /* Hide scrollbar for all browsers */
+      .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;  /* Chrome, Safari, Opera */
+      }
+
+   /* Add a subtle background blur for a modern look */
+      body {
+        overflow: hidden;
+        background-color: #f9fafb;
+      }
+    </style>
+  </c-slot>
+</c-base.base>

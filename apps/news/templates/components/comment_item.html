@@ -1,0 +1,6 @@
+<!-- Single comment item template for HTMX responses -->
+<div class="py-2 border-b">
+    <p class="font-semibold">{{ comment.author.username }}</p>
+    <p>{{ comment.content }}</p>
+    <p class="text-xs text-gray-500">{{ comment.created_at|date:"F j, Y, P" }}</p>
+</div>

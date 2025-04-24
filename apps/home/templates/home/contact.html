@@ -1,0 +1,210 @@
+{% load static tailwind_tags %}
+{% load crispy_forms_tags %}
+<c-base.base>
+  <c-slot name="page_title">Contact</c-slot>
+  <c-slot name="sidebar"><c-base.sidebar /></c-slot>
+  <c-slot name="content">
+    <div class="flex items-center justify-center min-h-screen py-4">
+      <div class="container max-w-5xl mx-auto overflow-hidden">
+      <!-- Futuristic Interface Container -->
+        <div class="relative flex flex-col md:flex-row rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,150,255,0.2)] bg-white/95 overflow-hidden border border-blue-300/40">
+         <!-- Holographic divider -->
+          <div class="absolute top-0 bottom-0 left-1/2 w-[0.2%] -ml-[0.1%] bg-gradient-to-b from-blue-400 via-sky-300 to-cyan-400 z-10 opacity-70 glow-effect pointer-events-none">
+          </div>
+         <!-- Digital interface dots/points - Adding pointer-events-none to all decorative elements -->
+          <div class="absolute top-[10%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-blue-400 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect pointer-events-none">
+          </div>
+          <div class="absolute top-[25%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-sky-300 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect-delay-1 pointer-events-none">
+          </div>
+          <div class="absolute top-[40%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-cyan-400 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect-delay-2 pointer-events-none">
+          </div>
+          <div class="absolute top-[55%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-sky-300 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect-delay-3 pointer-events-none">
+          </div>
+          <div class="absolute top-[70%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-blue-400 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect pointer-events-none">
+          </div>
+          <div class="absolute top-[85%] left-1/2 -translate-x-[1px] w-1.5 h-1.5 rounded-full bg-cyan-400 z-20 shadow-[0_0_8px_rgba(0,150,255,0.8)] pulse-effect-delay-1 pointer-events-none">
+          </div>
+         <!-- Digital edge glow - already has pointer-events-none -->
+          <div class="absolute inset-0 border pointer-events-none border-blue-400/20 rounded-xl"></div>
+          <div class="absolute -inset-[0.5px] border border-blue-400/10 rounded-xl blur-[1px] pointer-events-none"></div>
+         <!-- Left Panel - Vector LMD Information -->
+          <div class="relative w-full p-6 md:w-1/2 rounded-l-xl bg-gradient-to-br from-sky-50 via-blue-50 to-sky-100 digital-panel">
+            <!-- Digital interface patterns -->
+            <div class="absolute inset-0 opacity-70"
+                 style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%230ea5e9%22 fill-opacity=%220.05%22 fill-rule=%22evenodd%22%3E%3Cpath d=%22M0 20L20 0h10L0 30V20zM10 0L0 10v10L20 0H10z%22/%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+            <div class="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-transparent via-blue-300/30 to-transparent">
+            </div>
+            <!-- Content -->
+            <div class="flex items-center mb-6">
+              <span class="text-3xl font-bold text-transparent righteous-font bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-600">Vector LMD</span>
+            </div>
+            <h2 class="mb-4 text-2xl font-semibold text-gray-800">Get in Touch</h2>
+            <p class="mb-6 text-gray-600">
+              Have questions about our products or services? Our team is ready to assist you with any inquiries.
+            </p>
+            <div class="mb-6 space-y-5">
+              <div class="flex items-start group">
+                <div class="flex items-center justify-center w-10 h-10 mr-3 transition-all duration-300 border rounded-lg bg-blue-100/80 border-blue-300/30 group-hover:border-blue-400/50">
+                  <svg class="w-5 h-5 text-blue-500 transition-colors duration-300 group-hover:text-blue-600"
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-blue-600">Address</h3>
+                  <p class="text-sm text-gray-600">
+                    123 Manufacturing Way, Industrial District
+                    <br>
+                    New York, NY 10001
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start group">
+                <div class="flex items-center justify-center w-10 h-10 mr-3 transition-all duration-300 border rounded-lg bg-blue-100/80 border-blue-300/30 group-hover:border-blue-400/50">
+                  <svg class="w-5 h-5 text-blue-500 transition-colors duration-300 group-hover:text-blue-600"
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-blue-600">Phone</h3>
+                  <p class="text-sm text-gray-600">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="flex items-start group">
+                <div class="flex items-center justify-center w-10 h-10 mr-3 transition-all duration-300 border rounded-lg bg-blue-100/80 border-blue-300/30 group-hover:border-blue-400/50">
+                  <svg class="w-5 h-5 text-blue-500 transition-colors duration-300 group-hover:text-blue-600"
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-blue-600">Email</h3>
+                  <p class="text-sm text-gray-600">info@vectorlmd.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 mt-6 border rounded-lg bg-white/70 border-blue-300/30 backdrop-blur-sm">
+              <h3 class="mb-2 text-sm font-medium text-blue-600">Business Hours</h3>
+              <p class="text-sm text-gray-600">
+                Monday - Friday: 9:00 AM - 5:00 PM
+                <br>
+                Saturday - Sunday: Closed
+              </p>
+            </div>
+          </div>
+         <!-- Right Panel - Contact Form -->
+          <div class="relative w-full p-6 md:w-1/2 rounded-r-xl bg-gradient-to-bl from-blue-50 via-sky-50 to-blue-100 digital-panel">
+            <!-- Digital interface patterns - Adding pointer-events-none to prevent it from blocking interaction -->
+            <div class="absolute inset-0 opacity-50 pointer-events-none"
+                 style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%230369a1%22 fill-opacity=%220.07%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM36 4V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+            <div class="absolute top-0 left-0 h-full w-[1px] bg-gradient-to-b from-transparent via-blue-300/30 to-transparent pointer-events-none">
+            </div>
+            <!-- Content -->
+            <h2 class="relative mb-6 text-2xl font-semibold text-gray-800">
+              <span class="absolute -left-3 top-1 w-1.5 h-5 bg-blue-500 shadow-[0_0_8px_rgba(0,150,255,0.8)] pointer-events-none"></span>
+              Send us a Message
+            </h2>
+            <form method="post"
+                  action="{% url 'contact' %}"
+                  class="relative z-10 space-y-4"
+                  novalidate>
+              {% csrf_token %}
+              <div class="form-group">
+                {% for field in form %}
+                  <div class="mb-4">
+                    <label for="{{ field.id_for_label }}"
+                           class="block mb-2 text-sm font-medium text-gray-700">
+                      {{ field.label }}
+                      {% if field.field.required %}<span class="text-red-500">*</span>{% endif %}
+                    </label>
+                    {{ field }}
+                    {% if field.errors %}
+                      <div class="mt-1 text-sm text-red-600">
+                        {% for error in field.errors %}{{ error }}{% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+              <button type="submit"
+                      class="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                Submit
+              </button>
+            </form>
+            {% comment %} {% if messages %}
+               <div class="mt-4">
+                  {% for message in messages %}
+                     <div class="p-3 {% if message.tags == 'success' %}bg-green-100 text-green-700 border border-green-300{% else %}bg-blue-100 text-blue-700 border border-blue-300{% endif %} rounded-lg">
+                        {{ message }}
+                     </div>
+                  {% endfor %}
+               </div>
+            {% endif %} {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+/* Only keep styles that can't be achieved with Tailwind */
+      @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+      .righteous-font {
+        font-family: 'Righteous', cursive;
+      }
+
+/* Hide scrollbars */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+/* Digital interface animations */
+      .glow-effect {
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+      }
+
+      .pulse-effect {
+        animation: pulse 2s infinite;
+      }
+
+      .pulse-effect-delay-1 {
+        animation: pulse 2s infinite 0.5s;
+      }
+
+      .pulse-effect-delay-2 {
+        animation: pulse 2s infinite 1s;
+      }
+
+      .pulse-effect-delay-3 {
+        animation: pulse 2s infinite 1.5s;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+          transform: scale(1) translateX(-1px);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.1) translateX(-1px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateX(-1px);
+        }
+      }
+    </style>
+  </c-slot>
+</c-base.base>

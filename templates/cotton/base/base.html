@@ -1,0 +1,19 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+        {% tailwind_css %}
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <title>Vector LMD | {{ page_title }}</title>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    </head>
+    <body class="overflow-hidden bg-neutral-50 font-['Lora']">
+        <div class="grid grid-cols-[4.5rem_1fr] h-screen">
+            <div id="sidebar" class="overflow-y-auto shadow-lg bg-green-100/10">{{ sidebar }}</div>
+            <div id="content" class="overflow-y-auto">{{ content }}</div>
+        </div>
+    </body>
+</html>

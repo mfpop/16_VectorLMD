@@ -1,0 +1,29 @@
+<div class="grid h-full grid-rows-[0.25rem,auto,auto,1fr,auto] gap-0 overflow-hidden transition-all duration-300 bg-white shadow-md rounded-lg hover:-translate-y-1 hover:shadow-lg hover:bg-gray-50">
+   <!-- Top Accent Bar -->
+  <div class="w-full h-1"
+       style="background: linear-gradient(to right, {{ color }}, {{ color }}30)"></div>
+   <!-- Icon Section -->
+  <div class="flex items-center px-6 pt-5 pb-2">
+    <span class="p-2.5 rounded-lg text-white shadow-sm transition-all"
+          style="background: linear-gradient(135deg, {{ color }}, {{ color }}DD)">{{ icon }}</span>
+  </div>
+   <!-- Title Section -->
+  <div class="px-6 pt-1 pb-2 text-lg font-bold text-left text-gray-800">{{ title }}</div>
+   <!-- Description Section -->
+  <div class="px-6 text-sm leading-relaxed text-left text-gray-600">{{ description }}</div>
+   <!-- Footer Section -->
+  <div class="flex items-center justify-between px-6 py-4 mt-2 border-t border-gray-100">
+    <a href="/{{ href }}/"
+       class="flex items-center px-4 py-1.5 text-xs font-medium text-white transition-all duration-200 rounded-md shadow-sm hover:shadow-md"
+       style="background: linear-gradient(to right, {{ color }}, {{ color }}DD)">
+      <svg class="w-3.5 h-3.5 mr-1.5"
+           xmlns="http://www.w3.org/2000/svg"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+      Explore
+    </a>
+  </div>
+</div>
