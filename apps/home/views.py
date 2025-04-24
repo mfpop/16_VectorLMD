@@ -64,11 +64,13 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Extract form data
-            name = form.cleaned_data["name"]
-            email = form.cleaned_data["email"]
-            subject = form.cleaned_data["subject"]
-            message = form.cleaned_data["message"]
+            # Extract form data is currently commented out since it's not being used
+            # If you need to use these fields in the future, uncomment the lines below
+            # and implement the appropriate functionality
+            # name = form.cleaned_data["name"]
+            # email = form.cleaned_data["email"]
+            # subject = form.cleaned_data["subject"]
+            # message = form.cleaned_data["message"]
 
             # Here you would typically send an email or save to database
             # For example:

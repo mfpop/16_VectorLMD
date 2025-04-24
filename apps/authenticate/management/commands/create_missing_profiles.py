@@ -11,7 +11,7 @@ class Command(BaseCommand):
         for user in User.objects.all():
             # Check if user has a profile
             try:
-                profile = user.profile
+                user.profile
                 self.stdout.write(f"User {user.username} already has a profile")
             except Profile.DoesNotExist:
                 # Create profile if it doesn't exist

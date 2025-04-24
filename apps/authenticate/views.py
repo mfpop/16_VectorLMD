@@ -168,7 +168,7 @@ def profile_view(request):
     # Ensure profile exists
     try:
         profile = request.user.authenticate_profile
-    except:
+    except AttributeError:  # Use specific exception instead of bare except
         # Create profile if it doesn't exist
         from apps.authenticate.models import Profile
 

@@ -42,6 +42,13 @@ repos:
   hooks:
     - id: ruff
 
+- repo: https://github.com/rtts/djhtml
+  rev: 'main'  # replace with the latest tag on GitHub
+  hooks:
+    - id: djhtml
+    - id: djcss
+    - id: djjs
+
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.11.4
   hooks:

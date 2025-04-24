@@ -5,11 +5,10 @@ python create_profile_table.py
 """
 
 import os
-import sys
 import django
 
 # Set up Django environment
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "VectorLMD.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "a.settings")
 django.setup()
 
 
@@ -30,9 +29,9 @@ def make_and_apply_migrations():
 
     for user in User.objects.all():
         try:
-            # Check if profile exists
-            profile = user.profile
-        except:
+            # Check if profile exists - access without assigning to variable
+            user.profile
+        except Profile.DoesNotExist:  # Use specific exception instead of bare except
             # Create profile if it doesn't exist
             print(f"Creating profile for user: {user.username}")
             Profile.objects.create(user=user)
