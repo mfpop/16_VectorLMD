@@ -1,137 +1,140 @@
 {% load static tailwind_tags %}
 <c-base.base>
-  <c-slot name="page_title">Home</c-slot>
-  <c-slot name="sidebar"><c-base.sidebar /></c-slot>
-  <c-slot name="content">
-    <div id="content"
-         class="h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar-thumb]:hidden [&::-webkit-scrollbar-track]:hidden">
-   <!-- Screen navigation button -->
-      <div class="fixed z-50 bottom-8 right-8">
-        <button id="scrollButton"
-                onclick="scrollToNextSection()"
-                class="flex items-center justify-center p-2 text-gray-600 transition-all duration-300 rounded-full shadow-md bg-white/70 backdrop-blur-sm hover:bg-white hover:shadow-lg hover:scale-110">
-          <svg id="downIcon"
-               class="w-4 h-4"
-               xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-          <svg id="upIcon"
-               class="hidden w-4 h-4"
-               xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-          </svg>
-        </button>
-      </div>
-      <div id="screen1" class="h-screen bg-neutral-200/50 snap-start">
-        <div class="pt-16 mb-24 text-center">
-          <h1 class="mb-3 text-3xl font-extrabold leading-tight text-gray-500 md:text-4xl">
-            <span>Welcome to</span>
+<c-slot name="page_title">Home</c-slot>
+<c-slot name="sidebar"><c-base.sidebar /></c-slot>
+<c-slot name="content">
+<div id="content"
+     class="h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar-thumb]:hidden [&::-webkit-scrollbar-track]:hidden">
+  <!-- Screen navigation button -->
+  <div class="fixed z-50 bottom-8 right-8">
+    <button id="scrollButton"
+            onclick="scrollToNextSection()"
+            class="flex items-center justify-center p-2 text-gray-600 transition-all duration-300 rounded-full shadow-md bg-white/70 backdrop-blur-sm hover:bg-white hover:shadow-lg hover:scale-110">
+      <svg id="downIcon"
+           class="w-4 h-4"
+           xmlns="http://www.w3.org/2000/svg"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+      <svg id="upIcon"
+           class="hidden w-4 h-4"
+           xmlns="http://www.w3.org/2000/svg"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+  </div>
+  <div id="screen1" class="h-screen bg-neutral-200/50 snap-start">
+    <div class="pt-16 mb-24 text-center">
+      <h1 class="mb-3 text-3xl font-extrabold leading-tight text-gray-500 md:text-4xl">
+        <span>Welcome to</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600 righteous-font">Vector LMD</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg text-gray-500 ">
+        Your all-in-one solution for lean manufacturing data management and visualization.
+      </p>
+    </div>
+    <div class="grid h-64 grid-cols-3 gap-8 mx-8 ">
+      {% for card in cards %}
+        <div>
+          <c-home.apps_card color="{{ card.color }}" title="{{ card.title }}" description="{{ card.description }}" icon="{{ card.icon }}" href="{{ card.url }}">
+          </c-home.apps_card>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div id="screen2" class="h-screen bg-neutral-300 snap-start">
+    <!-- Main content section -->
+    <div class="mx-auto sm:px-6">
+      <!-- Why Choose Vector LMD section -->
+      <div class="flex flex-col items-center justify-center px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-16 text-center ">
+          <h2 class="mt-6 mb-3 text-3xl font-bold text-gray-900 ">
+            Why Choose
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600 righteous-font">Vector LMD</span>
-          </h1>
-          <p class="max-w-2xl mx-auto text-lg text-gray-500 ">
-            Your all-in-one solution for lean manufacturing data management and visualization.
-          </p>
-        </div>
-        <div class="grid h-64 grid-cols-3 gap-8 mx-8 ">
-          {% for card in cards %}
-            <div>
-              <c-home.apps_card color="{{ card.color }}" title="{{ card.title }}" description="{{ card.description }}" icon="{{ card.icon }}" href="{{ card.url }}">
-              </c-home.apps_card>
-            </div>
-          {% endfor %}
-        </div>
+          </h2>
+        </h2>
+        <p class="max-w-3xl mx-auto text-xl text-gray-600">Manufacturing excellence through better data management</p>
       </div>
-      <div id="screen2" class="h-screen bg-neutral-300 snap-start">
-      <!-- Main content section -->
-        <div class="mx-auto sm:px-6">
-         <!-- Why Choose Vector LMD section -->
-          <div class="flex flex-col items-center justify-center px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="mb-16 text-center ">
-              <h2 class="mt-6 mb-3 text-3xl font-bold text-gray-900 ">
-                Why Choose
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600 righteous-font">Vector LMD</span>
-              </h2>
-            </h2>
-            <p class="max-w-3xl mx-auto text-xl text-gray-600">Manufacturing excellence through better data management</p>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <!-- Left Card -->
+        <div class="relative group">
+          <div class="absolute inset-0 transition-transform duration-300 transform bg-gradient-to-r from-blue-400 to-teal-500 rounded-3xl rotate-1 group-hover:rotate-2">
           </div>
-          <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
-            <!-- Left Card -->
-            <div class="relative group">
-              <div class="absolute inset-0 transition-transform duration-300 transform bg-gradient-to-r from-blue-400 to-teal-500 rounded-3xl rotate-1 group-hover:rotate-2">
-              </div>
-              <div class="relative h-full p-8 transition-transform duration-300 bg-white border border-gray-100 shadow-lg rounded-2xl group-hover:-translate-y-1">
-                <div class="flex items-center justify-center w-16 h-16 mb-2 bg-blue-50 rounded-2xl">
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                       class="w-8 h-8 text-blue-600"
-                       fill="none"
-                       viewBox="0 0 24 24"
-                       stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 class="mb-2 text-2xl font-bold text-gray-900">Data-Driven Decisions</h3>
-                <div class="prose text-gray-600">
-                  <p>
-                    Transform your manufacturing process with insightful analytics and real-time dashboards that
-                    enable informed decision making.
-                  </p>
-                  <p class="mt-4">
-                    Our platform helps you identify bottlenecks, optimize workflows, and increase overall
-                    production efficiency through comprehensive data analysis.
-                  </p>
-                </div>
-              </div>
+          <div class="relative h-full p-8 transition-transform duration-300 bg-white border border-gray-100 shadow-lg rounded-2xl group-hover:-translate-y-1">
+            <div class="flex items-center justify-center w-16 h-16 mb-2 bg-blue-50 rounded-2xl">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   class="w-8 h-8 text-blue-600"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
             </div>
-            <!-- Right Card -->
-            <div class="relative group">
-              <div class="absolute inset-0 transition-transform duration-300 transform bg-gradient-to-r from-purple-400 to-indigo-500 rounded-3xl -rotate-1 group-hover:-rotate-2">
-              </div>
-              <div class="relative h-full p-8 transition-transform duration-300 bg-white border border-gray-100 shadow-lg rounded-2xl group-hover:-translate-y-1">
-                <div class="flex items-center mb-4">
-                  <div class="flex items-center justify-center mr-4 w-14 h-14 bg-purple-50 rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="text-purple-600 w-7 h-7"
-                         fill="none"
-                         viewBox="0 0 24 24"
-                         stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 class="text-2xl font-bold text-gray-900">Streamlined Operations</h3>
-                </div>
-                <div class="prose text-gray-600">
-                  <p>
-                    Simplify complex workflows and keep your team aligned with powerful task management
-                    and collaboration tools.
-                  </p>
-                  <p class="mt-4">
-                    Vector LMD integrates with your existing processes to create a seamless production environment
-                    where information flows naturally and operations run smoothly.
-                  </p>
-                </div>
-              </div>
+            <h3 class="mb-2 text-2xl font-bold text-gray-900">Data-Driven Decisions</h3>
+            <div class="prose text-gray-600">
+              <p>
+                Transform your manufacturing process with insightful analytics and real-time dashboards that
+                enable informed decision making.
+              </p>
+              <p class="mt-4">
+                Our platform helps you identify bottlenecks, optimize workflows, and increase overall
+                production efficiency through comprehensive data analysis.
+              </p>
             </div>
           </div>
-         <!-- Getting Started section with timeline design -->
-          <div class="max-w-5xl mx-auto mb-0">
-            <div class="mb-0 text-center">
-              <h2 class="mt-16 text-3xl font-bold text-gray-900 ">Getting Started</h2>
-              <p class="max-w-3xl mx-auto mb-0 text-xl text-gray-600">
-                Work smarter, faster, and effortlessly with <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600 righteous-font">Vector LMD</span>.
+        </div>
+        <!-- Right Card -->
+        <div class="relative group">
+          <div class="absolute inset-0 transition-transform duration-300 transform bg-gradient-to-r from-purple-400 to-indigo-500 rounded-3xl -rotate-1 group-hover:-rotate-2">
+          </div>
+          <div class="relative h-full p-8 transition-transform duration-300 bg-white border border-gray-100 shadow-lg rounded-2xl group-hover:-translate-y-1">
+            <div class="flex items-center mb-4">
+              <div class="flex items-center justify-center mr-4 w-14 h-14 bg-purple-50 rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="text-purple-600 w-7 h-7"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Streamlined Operations</h3>
+            </div>
+            <div class="prose text-gray-600">
+              <p>
+                Simplify complex workflows and keep your team aligned with powerful task management
+                and collaboration tools.
+              </p>
+              <p class="mt-4">
+                Vector LMD integrates with your existing processes to create a seamless production environment
+                where information flows naturally and operations run smoothly.
               </p>
             </div>
           </div>
         </div>
       </div>
+      <!-- Getting Started section with timeline design -->
+      <div class="max-w-5xl mx-auto mb-0">
+        <div class="mb-0 text-center">
+          <h2 class="mt-16 text-3xl font-bold text-gray-900 ">Getting Started</h2>
+          <p class="max-w-3xl mx-auto mb-0 text-xl text-gray-600"
+             style="font-family: 'CustomFont', sans-serif">
+            Work smarter, faster, and effortlessly with <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600 font-righteous">Vector LMD</span>.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <style>
+</div>
+</div>
+<style>
+
+
 /* Animation for section transitions */
     .snap-start {
       transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
@@ -152,16 +155,8 @@
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
       }
     }
-
-/* Import Righteous font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
-/* Apply Righteous font to Vector LMD */
-    .righteous-font {
-      font-family: 'Righteous', cursive;
-    }
-  </style>
-  <script>
+</style>
+<script>
   // Track the current screen
     let currentScreen = 0;
     const screens = document.querySelectorAll('.snap-start');
@@ -228,6 +223,6 @@
     // Observe all screen elements
       screens.forEach(screen => observer.observe(screen));
     });
-  </script>
+</script>
 </c-slot>
 </c-base.base>

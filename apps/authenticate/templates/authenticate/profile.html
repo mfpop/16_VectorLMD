@@ -1,24 +1,24 @@
 {% load static tailwind_tags %}
 <c-base.base>
-        <c-slot name="page_title">Profile</c-slot>
-        <c-slot name="sidebar"><c-base.sidebar /></c-slot>
-        <c-slot name="content">
-                <div class="flex items-center justify-center min-h-screen py-4">
-                        <div class="container max-w-4xl mx-auto overflow-hidden">
-                                <!-- Futuristic Interface Container -->
-                                <div class="relative rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,150,255,0.2)] bg-white/95 overflow-hidden border border-blue-300/40">
-                                        <!-- Digital edge glow -->
-                                        <div class="absolute inset-0 border pointer-events-none border-blue-400/20 rounded-xl"></div>
-                                        <div class="absolute -inset-[0.5px] border border-blue-400/10 rounded-xl blur-[1px] pointer-events-none"></div>
-                                        <!-- Profile Panel -->
-                                        <div class="relative w-full p-6 rounded-xl bg-gradient-to-br from-sky-50 via-blue-50 to-sky-100 digital-panel">
-                                                <!-- Digital interface patterns -->
-                                                <div class="absolute inset-0 pointer-events-none opacity-70"
-                                                         style="background-image: url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath fill=%22%230ea5e9%22 fill-opacity=%220.05%22 d=%22M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134
+<c-slot name="page_title">Profile</c-slot>
+<c-slot name="sidebar"><c-base.sidebar /></c-slot>
+<c-slot name="content">
+<div class="flex items-center justify-center min-h-screen py-4">
+        <div class="container max-w-4xl mx-auto overflow-hidden">
+                <!-- Futuristic Interface Container -->
+                <div class="relative overflow-hidden shadow-lg rounded-xl bg-white/98">
+                        <!-- Digital edge glow -->
+                        <div class="absolute inset-0 pointer-events-none rounded-xl"></div>
+                        <div class="absolute -inset-[0.5px] border border-blue-200 rounded-xl blur-[1px] pointer-events-none"></div>
+                        <!-- Profile Panel -->
+                        <div class="relative w-full p-6 rounded-xl bg-gradient-to-br from-sky-50/70 via-white/90 to-sky-50/70 digital-panel">
+                                <!-- Marble Background Pattern -->
+                                <div class="absolute inset-0 pointer-events-none opacity-40"
+                                         style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22 viewBox=%220 0 1200 600%22%3E%3Cdefs%3E%3ClinearGradient id=%22a%22 gradientUnits=%22userSpaceOnUse%22 x1=%22600%22 y1=%2225%22 x2=%22600%22 y2=%22575%22%3E%3Cstop offset=%220%22 stop-color=%22%230ea5e9%22 stop-opacity=%220.05%22/%3E%3Cstop offset=%221%22 stop-color=%22%230ea5e9%22 stop-opacity=%220.01%22/%3E%3C/linearGradient%3E%3Cfilter id=%22b%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.05%22 numOctaves=%228%22 result=%22noise%22/%3E%3CfeDisplacementMap in2=%22noise%22 scale=%22120%22 xChannelSelector=%22R%22 yChannelSelector=%22G%22/%3E%3C/filter%3E%3Cmask id=%22c%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22white%22/%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23b)%22 fill=%22black%22 opacity=%220.7%22/%3E%3C/mask%3E%3C/defs%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23a)%22 mask=%22url(%23c)%22/%3E%3C/svg%3E')">
                                 </div>
                                 <!-- Content -->
                                 <h2 class="relative mb-6 text-2xl font-semibold text-gray-800">
-                                        <span class="absolute -left-3 top-1 w-1.5 h-5 bg-blue-500 shadow-[0_0_8px_rgba(0,150,255,0.8)] pointer-events-none"></span>
+                                        <span class="absolute -left-3 top-1 w-1.5 h-5 bg-blue-400 shadow-[0_0_6px_rgba(0,150,255,0.6)] pointer-events-none"></span>
                                         Your Profile
                                 </h2>
                                 <!-- Display messages -->
@@ -32,8 +32,8 @@
                                         </div>
                                 {% endif %}
                                 <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                                        <!-- User Info Panel -->
-                                        <div class="col-span-1 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
+                                        <!-- Left Column: User Information -->
+                                        <div class="col-span-1 p-5 bg-white rounded-lg shadow-md">
                                                 <div class="flex flex-col items-center">
                                                         <div class="relative w-24 h-24 mb-3 overflow-hidden bg-blue-100 rounded-full group">
                                                                 {% if user.authenticate_profile.avatar %}
@@ -84,8 +84,8 @@
                                                         </div>
                                                 </div>
                                         </div>
-                                        <!-- Edit Profile Form -->
-                                        <div class="col-span-2 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
+                                        <!-- Right Column: Edit Profile Form -->
+                                        <div class="col-span-2 p-5 bg-white rounded-lg shadow-md">
                                                 <h3 class="mb-4 text-lg font-semibold text-gray-800">Edit Profile Information</h3>
                                                 <form method="post"
                                                       class="relative z-10 space-y-4"

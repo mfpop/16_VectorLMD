@@ -12,6 +12,7 @@ dependencies = [
     { name = "django-cotton" },
     { name = "django-crispy-forms" },
     { name = "django-graphiql" },
+    { name = "django-grappelli" },
     { name = "django-htmx" },
     { name = "djhtml" },
     { name = "djlint" },
@@ -33,6 +34,7 @@ requires-dist = [
     { name = "django-cotton", specifier = ">=2.0.3" },
     { name = "django-crispy-forms", specifier = ">=2.4" },
     { name = "django-graphiql", specifier = ">=0.4.4" },
+    { name = "django-grappelli", specifier = ">=4.0.1" },
     { name = "django-htmx", specifier = ">=1.23.0" },
     { name = "djhtml", specifier = ">=3.0.7" },
     { name = "djlint", specifier = ">=1.36.4" },
@@ -180,6 +182,15 @@ dependencies = [
     { name = "django" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/57/2c/1bf6e2b72daf0c5d7a743656bcab81515e64d750a35974770904b3a165d6/django-graphiql-0.4.4.tar.gz", hash = "sha256:693d1b0c82cb9515f27a24f213d7b5c3aa4f5b8d6b8123a293981ee8d072c78c", size = 181169 }
+
+[[package]]
+name = "django-grappelli"
+version = "4.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b1/b5/f3f48797ac4829d0cbf648f33dcffeb2801742b3464225e685d4f9537261/django-grappelli-4.0.1.tar.gz", hash = "sha256:5095c8b6cef3f471a7876e30e8ac5b8cfbee30f999a4fba9e5ee26bf6addc5e4", size = 11062540 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/63/30/ca6b76f0583a0d1c957ad049d5669d0fc43d7c62d727ab1e23bad2b9b8f5/django_grappelli-4.0.1-py2.py3-none-any.whl", hash = "sha256:35cdf82d509ac4c3a19ca7252a78be8b3b60686d4f2976c488c6d5f1dd3bdc85", size = 1823475 },
+]
 
 [[package]]
 name = "django-htmx"

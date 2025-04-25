@@ -1,0 +1,128 @@
+/* Font declaration */
+@font-face {
+  font-family: "Righteous";
+  src: url("/static/css/Righteous-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lora font declaration */
+@font-face {
+  font-family: "Lora";
+  src: url("/static/css/Lora/static/Lora-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/static/css/Lora/static/Lora-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/static/css/Lora/static/Lora-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/static/css/Lora/static/Lora-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply px-4 py-2 font-medium text-white transition-colors duration-300 bg-blue-600 rounded hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 font-medium text-white transition-colors duration-300 bg-gray-500 rounded hover:bg-gray-600;
+  }
+
+  /* Forms */
+  .form-input {
+    @apply block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50;
+  }
+
+  .form-label {
+    @apply block mb-1 text-sm font-medium text-gray-700;
+  }
+
+  .form-error {
+    @apply mt-1 text-sm text-red-600;
+  }
+
+  /* Cards */
+  .card {
+    @apply overflow-hidden bg-white rounded-lg shadow-md;
+  }
+
+  .card-header {
+    @apply px-4 py-3 border-b border-gray-200 bg-gray-50;
+  }
+
+  .card-body {
+    @apply p-4;
+  }
+
+  .card-footer {
+    @apply px-4 py-3 border-t border-gray-200 bg-gray-50;
+  }
+
+  /* Sidebar */
+  .sidebar-icon {
+    @apply relative flex items-center justify-center w-10 h-10 text-gray-500 transition-all duration-300 ease-in-out rounded-lg hover:bg-gray-100 hover:text-blue-600;
+  }
+
+  .sidebar-tooltip {
+    @apply absolute w-auto p-1 m-1 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-[10px] transition-all duration-300 scale-0 origin-left;
+  }
+}
+
+/* Animation effects that need keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Transition classes for sidebar */
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+.group:hover .sidebar-tooltip {
+  @apply scale-100;
+}
+
+/* Contact page animations */
+.animate-fade-in-left {
+  @apply transition-all duration-500 ease-out transform -translate-x-5 opacity-0;
+}
+
+.animate-fade-in-right {
+  @apply transition-all duration-500 ease-out transform translate-x-5 opacity-0;
+}
+
+.animate-fade-in-left.opacity-100,
+.animate-fade-in-right.opacity-100 {
+  @apply translate-x-0 opacity-100;
+}

@@ -1,7 +1,8 @@
 {% load static %}
 <div class="flex flex-col items-center justify-between h-screen w-full py-3 text-[10px] font-serif text-gray-500 rounded-lg">
    <div class="flex flex-col items-center w-full">
-      <a href="{% url 'home' %}" class="flex justify-center w-full mb-5">
+      <a href="{% url 'home' %}"
+         class="flex justify-center w-full px-0 mx-0 mb-5 transition-all duration-200 ease-in-out hover:bg-black/5">
          <img src="{% static 'images/Vector SVG.svg' %}"
               alt="Vector LMD Logo"
               class="w-8 h-8">
@@ -9,7 +10,7 @@
       <nav class="flex flex-col items-center w-full space-y-4">
          {% if user.is_authenticated %}
             <a href="{% url 'news:news_list' %}"
-               class="flex flex-col items-center w-full sidebar-icon group"
+               class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                title="News">
                <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -22,7 +23,7 @@
                <span class="sidebar-tooltip">News</span>
             </a>
             <a href="#"
-               class="flex flex-col items-center w-full sidebar-icon group"
+               class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                title="Messages">
                <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -35,7 +36,7 @@
                <span class="sidebar-tooltip">Messages</span>
             </a>
             <a href="{% url 'production:production_management' %}"
-               class="flex flex-col items-center w-full sidebar-icon group"
+               class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                title="Production">
                <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -49,7 +50,7 @@
                <span class="sidebar-tooltip">Production</span>
             </a>
             <a href="{% url 'metrics:index' %}"
-               class="flex flex-col items-center w-full sidebar-icon group"
+               class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                title="Metrics">
                <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -63,7 +64,7 @@
                <span class="sidebar-tooltip">Metrics</span>
             </a>
             <a href="{% url 'activities_dashboard' %}"
-               class="flex flex-col items-center w-full sidebar-icon group"
+               class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                title="Activities">
                <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -77,7 +78,7 @@
             </a>
          {% endif %}
          <a href="{% url 'about' %}"
-            class="flex flex-col items-center w-full sidebar-icon group"
+            class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
             title="About">
             <svg xmlns="http://www.w3.org/2000/svg"
                  class="w-5 h-5"
@@ -90,7 +91,7 @@
             <span class="sidebar-tooltip">About</span>
          </a>
          <a href="{% url 'contact' %}"
-            class="flex flex-col items-center w-full sidebar-icon group"
+            class="flex flex-col items-center w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
             title="Contact">
             <svg xmlns="http://www.w3.org/2000/svg"
                  class="w-5 h-5"
@@ -109,10 +110,10 @@
                  x-data="{ open: false, top: 0, left: 0 }"
                  @click="top = $event.clientY - 200; left = $event.clientX + 20;">
                <button @click="open = !open"
-                       class="flex flex-col sidebar-icon group"
+                       class="flex-col w-full px-0 mx-0 transition-all duration-200 ease-in-out sidebar-icon group hover:bg-black/5"
                        title="{{ user.username }}">
                   {% if user.authenticate_profile.avatar and user.authenticate_profile.avatar.url %}
-                     <div class="relative">
+                     <div class="relative flex justify-center w-full">
                         <!-- Try loading the user avatar with error handling -->
                         <img src="{{ user.authenticate_profile.avatar.url }}"
                              alt="{{ user.username }}"
@@ -125,8 +126,10 @@
                         </div>
                      </div>
                   {% else %}
-                     <div class="flex items-center justify-center w-12 h-12 text-white bg-blue-500 border-2 border-gray-200 rounded-full shadow-md hover:border-blue-400">
-                        <span class="text-sm font-medium">{{ user.username|slice:":2"|upper }}</span>
+                     <div class="flex items-center justify-center w-full">
+                        <div class="flex items-center justify-center w-12 h-12 text-white bg-blue-500 border-2 border-gray-200 rounded-full shadow-md hover:border-blue-400">
+                           <span class="text-sm font-medium">{{ user.username|slice:":2"|upper }}</span>
+                        </div>
                      </div>
                   {% endif %}
                   <span class="sidebar-tooltip">{{ user }}</span>
@@ -209,7 +212,7 @@
          {% else %}
             <div class="flex flex-col items-center space-y-4">
                <a href="{% url 'login' %}"
-                  class="flex flex-col items-center w-full text-[10px] text-gray-500 sidebar-icon group"
+                  class="flex flex-col items-center w-full text-[10px] text-gray-500 sidebar-icon group transition-all duration-200 ease-in-out hover:bg-black/5 px-0 mx-0"
                   title="Login">
                   <svg xmlns="http://www.w3.org/2000/svg"
                        fill="none"
@@ -222,7 +225,7 @@
                   <span class="sidebar-tooltip">Login</span>
                </a>
                <a href="{% url 'register' %}"
-                  class="flex flex-col items-center w-full sidebar-icon group text-[10px] tex=gray-500"
+                  class="flex flex-col items-center w-full sidebar-icon group text-[10px] tex=gray-500 transition-all duration-200 ease-in-out hover:bg-black/5 px-0 mx-0"
                   title="Register">
                   <svg xmlns="http://www.w3.org/2000/svg"
                        fill="none"
@@ -238,3 +241,4 @@
          {% endif %}
       </div>
    </div>
+</div>

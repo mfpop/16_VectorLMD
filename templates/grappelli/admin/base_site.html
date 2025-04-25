@@ -1,0 +1,27 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block branding %}
+   <h1 id="site-name">
+      <a href="{% url 'admin:index' %}">
+         <img src="{% static 'vector-lmd-logo.png' %}"
+              alt="Vector LMD"
+              height="40"
+              width="auto">
+         {{ site_header|default:_("Django administration") }}
+      </a>
+   </h1>
+{% endblock branding %}
+{% block extrastyle %}
+   {{ block.super }}
+   <style>
+    #header {
+        background: #1c2b36; /* Custom background color */
+    }
+    #header a:link, #header a:visited {
+        color: white; /* Custom text color */
+    }
+    #site-name img {
+        margin-right: 10px;
+    }
+   </style>
+{% endblock extrastyle %}

@@ -31,6 +31,7 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 # Application definition
 
 INSTALLED_APPS = [
+    "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -139,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-
+# Add path checking to avoid path errors
 STATICFILES_DIRS = [
     path
     for path in [
@@ -151,9 +152,30 @@ STATICFILES_DIRS = [
     ]
     if Path(path).exists()
 ]
+
+# Create directories if they don't exist
+import os
+
+for dir_path in [
+    "static/css",
+    "static/js",
+    "static/images",
+    "static/media",
+    "static/fonts",
+]:
+    full_path = BASE_DIR / dir_path
+    os.makedirs(full_path, exist_ok=True)
+
 STATIC_ROOT = (
     BASE_DIR / "staticfiles"
 )  # Directory for collected static files in production
+
+# Configure the Django MIME types for font files
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
 
 # Media files (User uploads)
 MEDIA_URL = "/media/"

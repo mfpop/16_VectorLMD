@@ -1,0 +1,58 @@
+/* Righteous font for headings */
+@font-face {
+  font-family: "Righteous";
+  src: url("Righteous.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lora font for body text */
+@font-face {
+  font-family: "Lora";
+  src: url("Lora-Regular.woff2") format("woff2"),
+    url("Lora-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("Lora-Bold.woff2") format("woff2"),
+    url("Lora-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("Lora-Italic.woff2") format("woff2"),
+    url("Lora-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Typography utility classes */
+.righteous-font {
+  font-family: "Righteous", sans-serif;
+}
+
+.font-righteous {
+  font-family: "Righteous", sans-serif;
+}
+
+.lora-font {
+  font-family: "Lora", serif;
+}
+
+.font-lora {
+  font-family: "Lora", serif;
+}
+
+/* Optional: Apply Lora to body text by default */
+p {
+  font-family: "Lora", serif;
+}
